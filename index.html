@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WLPY | Official Website</title>
+
+<style>
+:root {
+    --navy: #34483d;
+    --green: #617b68;
+    --pale: #edf1e8;
+    --cream: #f4f2e9;
+    --white: #fffdf8;
+    --ink: #303b32;
+    --muted: #737b70;
+    --line: #e5e3d8;
+    --accent: #c8795b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.7;
+}
+
+/* NAVIGATION */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 4px 18px rgba(52,72,61,.06);
+}
+
+.nav-container {
+    max-width: 1150px;
+    margin: auto;
+    padding: 18px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: bold;
+    color: var(--navy);
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: bold;
+    transition: .3s ease;
+}
+
+nav a:hover {
+    color: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* GENERAL LAYOUT */
+
+main {
+    max-width: 1150px;
+    margin: auto;
+    padding: 0 25px 60px;
+}
+
+section {
+    padding: 85px 0 25px;
+}
+
+h2 {
+    font-family: Georgia, serif;
+    color: var(--navy);
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 55px;
+    height: 3px;
+    background: var(--accent);
+    margin-top: 12px;
+    border-radius: 3px;
+}
+
+.section-description {
+    color: var(--muted);
+    max-width: 700px;
+    margin-bottom: 30px;
+}
+
+/* HOME */
+
+.hero {
+    margin-top: 35px;
+    min-height: 420px;
+    padding: 65px;
+    display: flex;
+    align-items: center;
+    border-radius: 28px;
+    color: var(--white);
+    background:
+        linear-gradient(
+            110deg,
+            rgba(42,65,51,.95),
+            rgba(91,119,94,.82)
+        );
+    box-shadow: 0 20px 45px rgba(52,72,61,.16);
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.eyebrow {
+    color: #f0c2a8;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(40px, 6vw, 65px);
+    line-height: 1.15;
+    margin: 18px 0;
+}
+
+.hero p {
+    color: #edf0e8;
+    max-width: 550px;
+    margin-bottom: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    background: var(--accent);
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .3s ease;
+}
+
+.button:hover {
+    background: #ad6048;
+    transform: translateY(-3px);
+    box-shadow: 0 7px 16px rgba(0,0,0,.16);
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 25px;
+}
+
+.panel {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 30px;
+    transition: .3s ease;
+}
+
+.panel h3 {
+    color: var(--navy);
+    margin-bottom: 8px;
+    margin-top: 15px;
+}
+
+.panel h3:first-child {
+    margin-top: 0;
+}
+
+.panel p {
+    color: var(--muted);
+    margin-bottom: 18px;
+}
+
+.about-highlight {
+    border-radius: 18px;
+    padding: 35px;
+    background: linear-gradient(145deg, #82927a, #34483d);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    min-height: 300px;
+}
+
+.about-highlight h3 {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    margin: 15px 0;
+}
+
+/* profileS */
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 28px 20px;
+    text-align: center;
+    transition: .3s ease;
+}
+
+.avatar {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: var(--pale);
+    border: 2px solid #d8dfd1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--navy);
+    font-size: 25px;
+    font-weight: bold;
+    transition: .3s ease;
+}
+
+.card h3 {
+    color: var(--navy);
+    margin-bottom: 5px;
+}
+
+.role {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 14px 30px rgba(52,72,61,.12);
+    border-color: #c4cdbb;
+}
+
+.card:hover .avatar {
+    transform: scale(1.1);
+    background: #dce6d8;
+}
+
+/* BLOGS */
+
+.blog-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.blog-image {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 10x;
+}
+.blog-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 28px;
+    transition: .3s ease;
+    scroll-margin-top: 100px;
+}
+.blog-card:nth-child(5){
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: 50%
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(52,72,61,.12);
+    border-color: #c4cdbb;
+}
+
+.blog-meta {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.blog-card h3 {
+    color: var(--navy);
+    font-family: Georgia, serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.blog-card p {
+    color: var(--muted);
+    margin-bottom: 12px;
+}
+
+.text-link {
+    display: inline-block;
+    color: var(--green);
+    text-decoration: none;
+    font-weight: bold;
+    transition: .3s ease;
+}
+
+.text-link:hover {
+    color: var(--accent);
+    transform: translateX(5px);
+}
+
+/* CONTACT */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.contact-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 30px;
+    transition: .3s ease;
+}
+
+.contact-card h3 {
+    color: var(--navy);
+    margin-bottom: 18px;
+}
+
+.contact-card p {
+    color: var(--muted);
+    margin-bottom: 12px;
+}
+
+form {
+    display: grid;
+    gap: 12px;
+}
+
+label {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-family: inherit;
+    background: white;
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+input:focus, textarea:focus {
+    outline: 2px solid #b8cddd;
+    border-color: var(--green);
+}
+
+button {
+    border: none;
+    padding: 12px 24px;
+    background: var(--navy);
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .3s ease;
+}
+
+button:hover {
+    background: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 7px 16px rgba(52,72,61,.18);
+}
+
+/* FOOTER */
+
+footer {
+    background: var(--navy);
+    color: #f0f1e9;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 40px;
+}
+
+footer a {
+    color: #f0c2a8;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ACCESSIBILITY */
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 760px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav {
+        gap: 12px 16px;
+    }
+
+    .hero {
+        padding: 40px 28px;
+    }
+
+    .about-grid,
+    .contact-grid,
+    .blog-list {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    section {
+        padding-top: 60px;
+    }
+}
+
+@media (max-width: 450px) {
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+}
+.avatar {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #d8dfd1;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* TABLET */
+@media (max-width: 768px) {
+    .profile-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .blog-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+}
+
+/* MOBILE PHONE */
+@media (max-width: 480px) {
+
+    /* Navigation */
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* profile cards */
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Blog cards */
+    .blog-list {
+        grid-template-columns: 1fr;
+    }
+
+    /* General spacing */
+    section {
+        padding: 35px 15px;
+    }
+
+    /* Headings */
+    h1 {
+        font-size: 26px;
+    }
+
+    h2 {
+        font-size: 23px;
+    }
+
+    /* Cards */
+    .card,
+    .blog-card {
+        padding: 20px;
+    }
+
+    /* Avatar */
+    .avatar {
+        width: 90px;
+        height: 90px;
+        margin: 0 auto 18px;
+        border-radius: 50%;
+        overflow: hidden;
+        
+    }
+
+    /* Images */
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+
+<header>
+    <div class="nav-container">
+        <a href="#home" class="logo">WLPY</a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About Me</a>
+            <a href="#profiles">Personal</a>
+            <a href="#blogs">Blogs</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+
+
+<section id="home" class="hero">
+    <div class="hero-content">
+        <span class="eyebrow">Welcome to the website</span>
+
+        <h1>Get to know WLPY.</h1>
+
+        <p>
+            Welcome to the official website.
+            Explore the website, know about me,
+            and discover WLP in the blogs.
+        </p>
+
+        <a href="#about" class="button">Discover More</a>
+    </div>
+</section>
+
+
+<section id="about">
+
+    <h2>About Me</h2>
+
+    <p class="section-description">
+        Learn more about me, what I do,
+        and what I hope to achieve.
+    </p>
+
+    <div class="about-grid">
+
+        <div class="panel">
+
+            <h3>Background</h3>
+
+            <p>
+                This website was formed for the Final Product 
+                and Final Exam of the subject Introduction
+                To Computing.
+            </p>
+
+            <h3>Mission</h3>
+
+            <p>
+                I aim to accomplish this website.
+            </p>
+
+            <h3>Our Vision</h3>
+
+            <p>
+                The goals are to submit this website
+                on time and develop our skills.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section id="profiles">
+
+    <h2>My Profile</h2>
+
+    <p class="section-description">
+        Meet the person who made the website.
+        Click on a personal blog to read about them.
+    </p>
+
+    <div class="profile-grid">
+
+        <div class="card">
+            <div class="avatar">
+            <img src="c:\Users\toble\Downloads\IMG_6590.JPEG">
+            </div>
+            <h3>Pascual Alyhia</h3>
+            <p class="role">Individual</p>
+            <a href="#profile-1-blog" class="text-link">
+                Read Blog →
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section id="blogs">
+
+    <h2>Personal Blog</h2>
+
+    <p class="section-description">
+        Read the individual's blogs, experiences,
+        and about them.
+    </p>
+
+    <div class="blog-list">
+
+        <article class="blog-card" id="profile-1-blog">
+            <div class="blog-meta">BLOG . WLP</div>
+            <h3>Blog Entry</h3>
+            <p><strong>Who is WLP?</strong></p>
+            <img src="c:\Users\toble\Downloads\782.jpeg"
+            alt="profile 1 blog image"
+            class="blog-image">
+            <p>
+                A nickname known and given to her.
+                Goes by the name 'wulpy'.
+                
+            </p>
+        </article>
+
+        <article class="blog-card" id="profile-1-blog">
+            <div class="blog-meta">BLOG . WLP</div>
+            <h3>Blog Post #1:</h3>
+            <p><strong> About Me</strong></p>
+             <img src="c:\Users\toble\OneDrive\Documents\GameDVMATS\jessqueen.jpg" 
+            class="blog-image" 
+            alt="profile 1 blog image">
+            <p> 
+                An ACT student, 2nd year. 
+                Who work as an on-call vet, 
+                5-7 days a week, 
+                depending on time of calls.
+            </p>
+
+        </article>
+
+        <article class="blog-card" id="profile-2-blog">
+            <div class="blog-meta">BLOG · WLP</div>
+            <h3>Blog Post #2:</h3>
+            <p><strong>Vetlunteer works</strong></p>
+            <img src="c:\Users\toble\Downloads\IMG_4003.JPEG"
+            alt="profile 1 blog image"
+            class="blog-image">
+            <p>
+                On 2023, she volunteered at the PAWSsion Project at Bulacan
+                to donate and distribute foods for the sheltered animals 
+                and as well as getting to know them.
+            </p>
+        </article>
+
+        <article class="blog-card" id="profile-3-blog">
+            <div class="blog-meta">BLOG · WLP</div>
+            <h3>Blog Post #3:</h3>
+            <p><strong>Did somebody say vaccine?</strong></p>
+            <img src="c:\Users\toble\Downloads\DSC_0785.JPEG"
+            alt="profile 1 blog image"
+
+            class="blog-image">
+            <p>
+                In the same year, 2023, the former veterinary student volunteered at the
+                Pet Grand Caravan in Valenzuela, where she and other upper-year students 
+                administered anti-rabies vaccines to pets.
+            </p>
+        </article>
+
+        <article class="blog-card" id="profile-4-blog">
+            <div class="blog-meta">BLOG · WLP</div>
+            <h3>Blog Post #4:</h3>
+            <p><strong>Why ACT?</strong></p>
+            <img src="c:\Users\toble\Downloads\IMG_4379.JPEG"
+            alt="profile 1 blog image"
+            class="blog-image">
+            <p>
+                WLP has been interested with electrical and tech ever since highschool,
+                she'd pry things and studies them then put them back together,
+                she fix a lot of things to the best of her abilities. 
+                She had experiences troubleshooting computers, devices and solving its issues. 
+                While preparing to migrate abroad, she was given an opportunity
+                to take a 2nd course. Studying ACT would give her more knowledge she doesn't know about.
+
+            </p>
+        </article>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <h2>Contact Me</h2>
+
+    <p class="section-description">
+        Have questions or inquiries?
+        Feel free to reach out.
+    </p>
+
+    <div class="contact-grid">
+
+        <div class="contact-card">
+
+            <h3>Get in Touch</h3>
+
+            <p>
+                <strong>Email:</strong>
+                WLP@hotmail.com
+            </p>
+
+            <p>
+                <strong>Facebook:</strong>
+                facebook.com/WLP
+            </p>
+
+        </div>
+
+        <div class="contact-card">
+
+            <h3>Send a Message</h3>
+
+            <form id="contact-form">
+
+                <div>
+                    <label for="name">Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Your name"
+                        required
+                    >
+                </div>
+
+                <div>
+                    <label for="email">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Your email"
+                        required
+                    >
+                </div>
+
+                <div>
+                    <label for="message">Message</label>
+                    <textarea
+                        id="message"
+                        placeholder="Write your message..."
+                        required
+                    ></textarea>
+                </div>
+
+                <button type="submit">Prepare Email</button>
+
+                <small style="color:var(--muted)">
+                    This form opens your email application.
+                </small>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>© 2026 WLP. All Rights Reserved.</p>
+
+    <p>
+        <a href="#home">Back to Top ↑</a>
+    </p>
+
+</footer>
+
+<!-- CONTACT FORM SCRIPT -->
+
+<script>
+
+document.getElementById("contact-form")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("name").value.trim();
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    const message =
+        document.getElementById("message").value.trim();
+
+    const subject =
+        encodeURIComponent("Message from " + name);
+
+    const body =
+        encodeURIComponent(
+            message +
+            "\n\nFrom: " + name +
+            "\nEmail: " + email
+        );
+
+    window.location.href =
+        "mailto:wulpyy@hotmail.com?subject=" +
+        subject + "&body=" + body;
+
+});
+
+</script>
+
+</body>
+</html>
